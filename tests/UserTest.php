@@ -7,13 +7,14 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic functional test example.
-     *
-     * @return void
+     * Test login
      */
-    public function testBasicExample()
+    public function testLogin()
     {
-        /*$this->visit('/')
-             ->see('Laravel 5');*/
+        $this->visit('/auth/login')
+            ->type('a.test@test.nl','email')
+            ->type('test','password')
+            ->press('Login')
+            ->seePageIs('/');
     }
 }

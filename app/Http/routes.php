@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+    if(Auth::guest())
+        return redirect('auth/login');
     return view('welcome');
 });
 
